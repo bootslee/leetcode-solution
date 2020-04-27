@@ -40,10 +40,6 @@ public class Rotate1395 {
      *   [12, 6, 8, 9],
      *   [16, 7,10,11]
      * ]
-     *
-     * 来源：力扣（LeetCode）
-     * 链接：https://leetcode-cn.com/problems/rotate-matrix-lcci
-     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      * @param matrix
      */
     public void rotate(int[][] matrix) {

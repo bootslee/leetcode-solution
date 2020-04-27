@@ -3,6 +3,11 @@ package com.bootslee.leetcode;
 import java.util.Arrays;
 
 public class MergeIntervals56 {
+    /**
+     * 给出一个区间的集合，请合并所有重叠的区间。
+     * @param intervals
+     * @return
+     */
     public int[][] merge(int[][] intervals) {
         Arrays.sort(intervals, (v1, v2) -> v1[0] - v2[0]);
         int[][] res = new int[intervals.length][2];

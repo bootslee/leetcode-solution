@@ -2,6 +2,7 @@ package com.bootslee.leetcode;
 
 public class MovingCount13 {
     /**
+     * 机器人的运动范围
      * 等差数列的求和公式Sn=n(a1+an)/2
      * @param m
      * @param n

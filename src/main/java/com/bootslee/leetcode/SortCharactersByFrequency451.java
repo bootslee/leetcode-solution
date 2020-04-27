@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SortCharactersByFrequency451 {
+    /**
+     * 给定一个字符串，请将字符串里的字符按照出现的频率降序排列。
+     * @param s
+     * @return
+     */
     public String frequencySort(String s) {
         int[] count = new int[128];
         for(int i = 0; i < s.length(); i++)

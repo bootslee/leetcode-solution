@@ -9,6 +9,12 @@ public class MergeKLists23 {
         }
     }
 
+    /**
+     *
+     * 合并K个排序链表
+     * @param lists
+     * @return
+     */
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         int left = 0;

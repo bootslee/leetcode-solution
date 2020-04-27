@@ -7,6 +7,14 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class FizzBuzz412 {
+    /**
+     * 写一个程序，输出从 1 到 n 数字的字符串表示。
+     * 1. 如果 n 是3的倍数，输出“Fizz”；
+     * 2. 如果 n 是5的倍数，输出“Buzz”；
+     * 3.如果 n 同时是3和5的倍数，输出 “FizzBuzz”。
+     * @param n
+     * @return
+     */
     public List<String> fizzBuzz3(int n) {
         final int[] count3 = {1};
         final int[] count5 = { 1 };

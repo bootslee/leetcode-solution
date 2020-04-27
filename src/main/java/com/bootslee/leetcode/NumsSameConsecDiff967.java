@@ -4,6 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NumsSameConsecDiff967 {
+    /**
+     * 返回所有长度为 N 且满足其每两个连续位上的数字之间的差的绝对值为 K 的非负整数。
+     * 请注意，除了数字 0 本身之外，答案中的每个数字都不能有前导零。
+     * 例如，01 因为有一个前导零，所以是无效的；但 0 是有效的。
+     * 你可以按任何顺序返回答案。
+     * @param N
+     * @param K
+     * @return
+     */
     public int[] numsSameConsecDiff(int N, int K) {
         List<Integer> list= new ArrayList<>();
         for (int i = 1; i <= 9; ++i)

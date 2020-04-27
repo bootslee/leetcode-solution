@@ -4,6 +4,9 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 队列的最大值
+ */
 public class MaxQueue {
     Queue<Integer> que;
     Deque<Integer> deq;

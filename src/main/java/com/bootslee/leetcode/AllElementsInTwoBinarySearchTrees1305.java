@@ -3,7 +3,7 @@ package com.bootslee.leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BSTTreeElements1305 {
+public class AllElementsInTwoBinarySearchTrees1305 {
     public class TreeNode {
         int val;
         TreeNode left;
@@ -71,14 +71,22 @@ public class BSTTreeElements1305 {
         return ansList;
     }
 
+    /**
+     * 给你 root1 和 root2 这两棵二叉搜索树。
+     * 请你返回一个列表，其中包含 两棵树 中的所有整数并按 升序 排序。.
+     * @param root1
+     * @param root2
+     * @return
+     */
     public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
         List<Integer> ansList1 = new ArrayList<>();
         List<Integer> ansList2 = new ArrayList<>();
         dfs(root1, ansList1);
         dfs(root2, ansList2);
-
+        //先便利然后再合并
         return merge(ansList1, ansList2);
     }
+    //一边遍历一边合并
     public List<Integer> getAllElements1(TreeNode root1, TreeNode root2) {
         List<Integer> ansList1 = new ArrayList<>();
         dfs(root1,root2, ansList1);

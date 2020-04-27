@@ -14,6 +14,7 @@ public class ChalkboardXorGame {
     public boolean xorGame(int[] nums) {
         int xor=0;
         for (int num:nums)xor=xor^num;
+        //推导可知当前数组如果异或后为0，则先手必胜，或者 数组为偶数个时，先手必胜
         return (nums.length&1) ==0 ||(xor==0) ;
     }
 
