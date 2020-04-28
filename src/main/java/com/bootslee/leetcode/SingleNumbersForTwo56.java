@@ -18,17 +18,16 @@ public class SingleNumbersForTwo56 {
         }
         //获取高位bit为1，用于分组
         int mark=xor & -xor;
-        int a=0,b=0;
+        int a=0;
         for (int num:nums){
             //将所有的数字根据mark分成两组。
             //可以知道相同的数字肯定在同一组中，而两个不同的数字则被分在不同的数组中了
-            if((num & mark)==0){
+            if((num & mark)!=0){
                 a^=num;
-            }else {
-                b^=num;
             }
         }
-        return new int[]{a,b};
+        //充分利用 上一次的xor值，a^b=xor 则 b=xor^a 异或法则
+        return new int[]{a,xor^a};
     }
 
     public static void main(String[] args) {
