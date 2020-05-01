@@ -2,43 +2,22 @@ package com.bootslee.leetcode;
 
 import com.bootslee.leetcode.datastructure.ListNode;
 
-public class MergeKLists23 {
-
+public class MergeTwoSortedLists21 {
     /**
-     *
-     * 合并K个排序链表
-     * @param lists
-     * @return
+     * 将两个升序链表合并为一个新的升序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
      */
-    public ListNode mergeKLists(ListNode[] lists) {
-        if (lists == null || lists.length == 0) return null;
-        int left = 0;
-        int right = 0;
-        int count = 0;
-        int size=lists.length;
-        do {
-            count = 0;
-            left = 0;
-            right = size-1;
-            while (left < right) {
-                lists[count++] = mergeTwoNode(lists[left++], lists[right--]);
-            }
-            size = (left == right)? left+1:left;
-        } while (size != 1);
-        return lists[0];
-    }
-    private ListNode mergeTwoNode(ListNode node1, ListNode node2) {
-        if (node1 == null && node2 != null) {
-            return node2;
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null && l2 != null) {
+            return l2;
         }
-        if (node2 == null && node1 != null) {
-            return node1;
+        if (l2 == null && l1 != null) {
+            return l1;
         }
-        if (node1 == null && node2 == null) {
+        if (l1 == null && l2 == null) {
             return null;
         }
-        ListNode tmpNode1 = node1;
-        ListNode tmpNode2 = node2;
+        ListNode tmpNode1 = l1;
+        ListNode tmpNode2 = l2;
         ListNode head = new ListNode(-1);
         ListNode preNode = head;
         while (tmpNode1 != null || tmpNode2 != null) {

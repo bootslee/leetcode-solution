@@ -1,15 +1,9 @@
 package com.bootslee.leetcode;
 
+import com.bootslee.leetcode.datastructure.ListNode;
+
 public class AddTwoNumbers2 {
 
-
-    public class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     /**
      * 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，

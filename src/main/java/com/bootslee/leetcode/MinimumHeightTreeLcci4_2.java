@@ -1,17 +1,12 @@
 package com.bootslee.leetcode;
 
+import com.bootslee.leetcode.datastructure.TreeNode;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class MinimumHeightTreeLcci4_2 {
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
+
 
     /**
      * 面试题 04.02. 最小高度树

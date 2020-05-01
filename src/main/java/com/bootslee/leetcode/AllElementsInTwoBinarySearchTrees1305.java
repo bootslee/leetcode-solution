@@ -1,18 +1,13 @@
 package com.bootslee.leetcode;
 
+import com.bootslee.leetcode.datastructure.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class AllElementsInTwoBinarySearchTrees1305 {
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-    private void dfs(TreeNode root1,TreeNode root2, List<Integer> ansList) {
+
+    private void dfs(TreeNode root1, TreeNode root2, List<Integer> ansList) {
         if (root1 == null&&root2==null) {
             return;
         }

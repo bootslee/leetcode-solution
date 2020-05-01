@@ -8,12 +8,6 @@ public class SuperEggDrop887 {
      * dp(K,N)=1+  min  (max(dp(K−1,X−1),dp(K,N−X)))
      *           1≤X≤N
      * dp(K,N) 为在状态 (K, N) 下最少需要的步数
-     * ​
-     *
-     *
-     * @param K
-     * @param N
-     * @return
      */
     public int superEggDrop(int K, int N) {
         // dp[i][j]：一共有 i 层楼梯的情况下，使用 j 个鸡蛋的最少实验的次数

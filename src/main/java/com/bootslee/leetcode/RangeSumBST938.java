@@ -1,17 +1,8 @@
 package com.bootslee.leetcode;
 
+import com.bootslee.leetcode.datastructure.TreeNode;
+
 public class RangeSumBST938 {
-    /**
-     * Definition for a binary tree node.
-     */
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     /**
      * 给定二叉搜索树的根结点 root，返回 L 和 R（含）之间的所有结点的值的和。

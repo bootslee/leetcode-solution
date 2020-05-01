@@ -1,15 +1,11 @@
 package com.bootslee.leetcode;
 
+import com.bootslee.leetcode.datastructure.ListNode;
+
 import java.util.Stack;
 
 public class AddTwoNumbers445 {
-    public class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-        }
-    }
+
 
     /**
      * 给你两个 非空 链表来代表两个非负整数。数字最高位位于链表开始位置。
