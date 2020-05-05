@@ -68,8 +68,8 @@ public class Qiu12nLcof64 {
      */
     public static int multiply2(int a, int b) {
         int ans = 0;
-        while (b > 0) {
-            if ((b & 1) > 0) {
+        while (b != 0) {
+            if ((b & 1) == 1) {
                 ans = ans + a;
             }
             // 在快速幂中这里应该是a = a * a, 快速加应改成a = a + a
@@ -83,7 +83,13 @@ public class Qiu12nLcof64 {
     //不用while的快速相乘
     public static int multiply3(int a, int b) {
         int ans = 0;
-        boolean flag = b > 0 && (ans = multiply3(a << 1, b >> 1)) > 0;
+        boolean flag = (b > 0 && (ans = multiply3(a << 1, b >> 1)) > 0);
+        return ans+(a & (-(b & 1)));
+    }
+    public static int multiply4(int a, int b) {
+        int ans = 0;
+        if(b!=0)
+            ans = multiply4(a << 1, b >> 1);
         return ans+(a & (-(b & 1)));
     }
 
@@ -100,6 +106,9 @@ public class Qiu12nLcof64 {
     }
 
     /**
+     * 面试题 17.01. 不用加号的加法
+     * 设计一个函数把两个数字相加。不得使用 + 或者其他算术运算符。
+     * 面试题65. 不用加减乘除做加法
      * 写一个函数，求两个整数之和，要求在函数体内不得使用 “+”、“-”、“*”、“/” 四则运算符号。
      * @param a
      * @param b
@@ -122,6 +131,110 @@ public class Qiu12nLcof64 {
             b = c; // b = 进位
         }
         return a;
+    }
+
+    /**
+     * 给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。
+     * 返回被除数 dividend 除以除数 divisor 得到的商。
+     * 整数除法的结果应当截去（truncate）其小数部分，例如：truncate(8.345) = 8 以及 truncate(-2.7335) = -2
+     * @param dividend
+     * @param divisor
+     * @return
+     */
+    public int divide(int dividend, int divisor) {
+        boolean s = (dividend ^ divisor) >= 0;
+        long d1 = (long) dividend;
+        long d2 = (long) divisor;
+        d1 = d1 > 0 ? d1 : -d1;
+        d2 = d2 > 0 ? d2 : -d2;
+        if (d1 < d2)
+            return 0;
+        // d = 1000000000000000000000000000000
+        long d = 0x40_00_00_00_00L, c = 0L, res = 0L;
+        while (d != 0) {
+            c = (c << 1) | ((d & d1) == 0 ? 0 : 1);//（从前往后获取当前的二进制）
+            if (c >= d2) {
+                res = (res << 1) | 1;//补1
+                c -= d2;
+            } else {
+                res = res << 1;//补0
+            }
+            d = d >> 1;
+        }
+        // 判断边界
+        return s ? res > Integer.MAX_VALUE ? Integer.MAX_VALUE : (int)res : (int)-res;
+    }
+
+    public int minus(int a, int b) {
+        while (b != 0) {
+            int p = a & b;
+            a ^= p;
+            b ^= p;
+            a |= b;
+            b <<= 1;
+        }
+        return a;
+    }
+        /**
+         * 面试题 16.09. 运算
+         * 请实现整数数字的乘法、减法和除法运算，运算结果均为整数数字，
+         * 程序中只允许使用加法运算符和逻辑运算符，允许程序中出现正负常数，不允许使用位运算。
+         */
+    class Operations {
+
+        public Operations() {
+
+        }
+
+        public int minus(int a, int b) {
+            b=-b;//a-b=a+(-b);
+            while(b != 0) { // 当进位为 0 时跳出
+                int c = (a & b) << 1;  // c = 进位
+                a ^= b; // a = 非进位和
+                b = c; // b = 进位
+            }
+            return a;
+        }
+
+        public int multiply(int a, int b) {
+            int ans = 0;
+            boolean flag=a>0?(b <= 0):(b > 0);
+            a=a>0?a:-a;b=b>0?b:-b;
+            while (b != 0 ) {
+                if ((b & 1) == 1) {
+                    ans = ans + a;
+                }
+                // 在快速幂中这里应该是a = a * a, 快速加应改成a = a + a
+                a <<= 1;
+                // 用位运算优化了两数相加的操作
+                b >>= 1;
+            }
+            return flag?-ans:ans;
+        }
+
+        public int divide(int dividend, int divisor) {
+            boolean s = (dividend ^ divisor) >= 0;
+            long d1 = (long) dividend;
+            long d2 = (long) divisor;
+            d1 = d1 > 0 ? d1 : -d1;
+            d2 = d2 > 0 ? d2 : -d2;
+            if (d1 < d2)
+                return 0;
+            // d = 1000000000000000000000000000000
+            long d = 0x40_00_00_00_00L, c = 0L, res = 0L;
+            while (d != 0) {
+                c = (c << 1) | ((d & d1) == 0 ? 0 : 1);//（从前往后获取当前的二进制）
+                if (c >= d2) {
+                    res = (res << 1) | 1;//补1
+                    c  = c+(-d2);
+                } else {
+                    res = res << 1;//补0
+                }
+                d = d >> 1;
+            }
+            // 判断边界
+            return s ? res > Integer.MAX_VALUE ? Integer.MAX_VALUE : (int)res : (int)-res;
+        }
     }
 
     public static void main(String[] args) {
