@@ -11,10 +11,11 @@ public class MajorityElement169 {
         int count=0;
         Integer res = null;
         for(int num:nums){
-
+            // 随便找一个元素
             if (count == 0) {
                 res = num;
             }
+            //遇到相同的+1，不同的-1。
             count += (num == res) ? 1 : -1;
         }
         return res;
