@@ -43,8 +43,9 @@ public class SubarraySumEqualsK560 {
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
             //sum 为累计和，如果sum[i]-sum[j]=k 则说明[i,j]满足条件
-            if (map.containsKey(sum - k))
+            if (map.containsKey(sum - k)) {
                 count += map.get(sum - k);
+            }
             map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
         return count;
