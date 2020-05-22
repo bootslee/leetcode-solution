@@ -1,5 +1,7 @@
 package com.bootslee.leetcode;
 
+import com.bootslee.leetcode.datastructure.TreeNode;
+
 public class HouseRobber198 {
     /**
      * 你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
@@ -27,8 +29,12 @@ public class HouseRobber198 {
      * @return
      */
     public int rob2(int[] nums) {
-        if (nums.length == 0) return 0;
-        if (nums.length == 1) return nums[0];
+        if (nums.length == 0) {
+            return 0;
+        }
+        if (nums.length == 1) {
+            return nums[0];
+        }
         int prevMax = 0;
         int firstMax = 0;
         for (int i = 0; i < nums.length - 1; i++) {
@@ -58,7 +64,9 @@ public class HouseRobber198 {
     }
 
     public int[] robInternal(TreeNode root) {
-        if (root == null) return new int[2];
+        if (root == null) {
+            return new int[2];
+        }
         int[] result = new int[2];
 
         int[] left = robInternal(root.left);
@@ -69,12 +77,4 @@ public class HouseRobber198 {
         return result;
     }
 
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 }

@@ -29,8 +29,12 @@ public class AddBinary67 {
         return  ans.reverse().toString();
     }
     public String addBinary2(String a, String b) {
-        if (a == null || a.isEmpty()) return b;
-        if (b == null || b.isEmpty()) return a;
+        if (a == null || a.isEmpty()) {
+            return b;
+        }
+        if (b == null || b.isEmpty()) {
+            return a;
+        }
 
         int[] ret = new int[Math.max(a.length(), b.length()) + 1];
         for (int i = 0; i < a.length(); i++) {
