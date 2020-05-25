@@ -13,21 +13,22 @@ public class AddBinary67 {
      */
     public String addBinary(String a, String b) {
         StringBuilder ans = new StringBuilder();
-        int pa = a.length()-1;
-        int pb = b.length()-1;
+        int pa = a.length() - 1;
+        int pb = b.length() - 1;
         int carry = 0;
-        while (pa >=0 || pb >= 0) {
-            int va = pa<0 ? 0 : a.charAt(pa)-'0';
-            int vb = pb<0 ? 0 : b.charAt(pb)-'0';
-            int sum = (va + vb + carry)&1;
+        while (pa >= 0 || pb >= 0) {
+            int va = pa < 0 ? 0 : a.charAt(pa) - '0';
+            int vb = pb < 0 ? 0 : b.charAt(pb) - '0';
+            int sum = (va + vb + carry) & 1;
             ans.append(sum);
-            carry = (va + vb + carry)>>1;
+            carry = (va + vb + carry) >> 1;
             pa--;
             pb--;
         }
-        ans.append(carry==0 ? "" : carry);
-        return  ans.reverse().toString();
+        ans.append(carry == 0 ? "" : carry);
+        return ans.reverse().toString();
     }
+
     public String addBinary2(String a, String b) {
         if (a == null || a.isEmpty()) {
             return b;
@@ -63,5 +64,11 @@ public class AddBinary67 {
         } else {
             return sb.toString();
         }
+    }
+
+    public static void main(String[] args) {
+        String one = new String("A");
+        String two = "A".intern();
+        System.out.println((one == two));
     }
 }
