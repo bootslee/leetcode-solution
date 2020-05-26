@@ -52,7 +52,9 @@ public class AddBinary67 {
         }
 
         int index = ret.length - 1;
-        for (; index >= 0 && ret[index] == 0; index--) ;
+        for (; index >= 0 && ret[index] == 0; index--){
+            // no thing
+        }
 
         StringBuilder sb = new StringBuilder();
         for (; index >= 0; index -= 1) {
