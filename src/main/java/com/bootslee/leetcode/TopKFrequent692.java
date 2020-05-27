@@ -57,4 +57,15 @@ public class TopKFrequent692 {
         return map.entrySet().parallelStream().sorted((w1, w2) -> w2.getValue()==w1.getValue() ?
                 w1.getKey().compareTo(w2.getKey()) : w2.getValue().compareTo(w1.getValue())).limit(k).map(w->w.getKey()).collect(Collectors.toList());
     }
+
+    public List<Character> top(String s) {
+        Integer[] chars=new Integer[s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            chars[i]=(int)s.charAt(i);
+        }
+        Map<Integer, Long> map = Arrays.stream(chars).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        return map.entrySet().parallelStream().sorted((w1, w2) -> w2.getValue()==w1.getValue() ?
+                w1.getKey().compareTo(w2.getKey()) : w2.getValue().compareTo(w1.getValue()))
+                .map(w->(char)w.getKey().intValue()).collect(Collectors.toList());
+    }
 }
