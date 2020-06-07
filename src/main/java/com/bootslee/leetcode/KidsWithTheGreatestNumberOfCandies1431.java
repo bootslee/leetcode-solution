@@ -30,4 +30,8 @@ public class KidsWithTheGreatestNumberOfCandies1431 {
         }
         return ret;
     }
+
+    public static void main(String[] args) {
+        System.out.println((new String("aa")+"aa")=="aaaa");
+    }
 }
